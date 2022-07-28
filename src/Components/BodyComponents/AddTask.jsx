@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const AddTask = (props) => {
 
     let addListItem = props.addListItem;
@@ -9,7 +8,6 @@ const AddTask = (props) => {
     const [task, setTask] = React.useState("");
     const [time, setTime] = React.useState("");
     const [reminder, setReminder] = React.useState(false);
-    // only one parameter in state manager
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -21,7 +19,7 @@ const AddTask = (props) => {
             // let lastPosition = list.length - 1;
             // let newId = list[lastPosition].id + 1;
             // let newListItem = {...listItem, id: newId};
-            let listItem = {id: randomNum, text: task, time: time, reminder: reminder};
+            let listItem = {"id": randomNum, "text": task, "time": time, "reminder": reminder};
             addListItem(listItem);
             setTask("");
             setTime("");
@@ -32,7 +30,6 @@ const AddTask = (props) => {
         
     return (
         <form className="addForm">
-
             <div className="form-control">
                 <label> Task: </label>
                 <input type="text" placeholder="Add a task here..."
@@ -40,7 +37,6 @@ const AddTask = (props) => {
                     onChange={e => setTask(e.target.value)}>
                 </input>
             </div>
-
             <div className="form-control">
                 <label> Date & Time: </label>
                 <input type="datetime local" placeholder="Add date and time here..." 
@@ -48,7 +44,6 @@ const AddTask = (props) => {
                     onChange={e => setTime(e.target.value)}>
                 </input>
             </div>
-
             <div className="form-control form-control-check">
                 <label>Set Reminder:</label>
                 <input type="checkbox" 
@@ -57,14 +52,11 @@ const AddTask = (props) => {
                     onChange={e => setReminder(e.target.checked)}>
                 </input>
             </div>
-
             <button className="button blockButton" 
                 onClick={onSubmit}>
                 Save Task
             </button>
-
         </form>
     )
-
 }
 export default AddTask;
